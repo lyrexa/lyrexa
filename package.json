@@ -6,9 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "cd build && node index.js",
-    "dev": "concurrently \"tsc -w\" \"nodemon build/index.js\"",
     "watch": "tsc -w",
-    "nmon": "nodemon build/index.js"
+    "ci": "npm install && npm run build"
   },
   "author": "DiamondDev01",
   "license": "ISC",
