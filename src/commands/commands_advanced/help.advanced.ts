@@ -28,7 +28,8 @@ export const advanced: AdvancedHelpData = {
             people: [
                 { data: { name: 'Diamond Oreo', discriminator: '0001' }, id: '632541244035301376' }
             ]
-        }
+        },
+        lines: 307
     }
 
 }
