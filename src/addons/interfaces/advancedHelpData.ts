@@ -1,7 +1,7 @@
 export interface AdvancedHelpData {
     enabled: boolean;
     usage: AHD_Usage;
-    parameters: AHD_Parameter[];
+    parameters?: AHD_Parameter[];
     commandDetails?: AHD_CommandDetails;
     codeDetails?: AHD_CodeDetails;
 }
@@ -50,5 +50,15 @@ interface AHD_Parameter {
     description: string;
 }
 
-type meta = { AHD_UsageItem: AHD_UsageItem; AHD_UsageItemOption: AHD_UsageItemOption; AHD_CommandDetails: AHD_CommandDetails; AHD_CodeDetails: AHD_CodeDetails; AHD_Contributors: AHD_Contributors; AHD_Contributor: AHD_Contributor; AHD_Person: AHD_Person, AHD_Parameter: AHD_Parameter };
+namespace meta {
+    export type _AHD_UsageItem = AHD_UsageItem;
+    export type _AHD_UsageItemOption = AHD_UsageItemOption;
+    export type _AHD_Usage = AHD_Usage;
+    export type _AHD_CommandDetails = AHD_CommandDetails;
+    export type _AHD_CodeDetails = AHD_CodeDetails;
+    export type _AHD_Contributors = AHD_Contributors;
+    export type _AHD_Contributor = AHD_Contributor;
+    export type _AHD_Person = AHD_Person;
+    export type _AHD_Parameter = AHD_Parameter;
+}
 export { meta };
