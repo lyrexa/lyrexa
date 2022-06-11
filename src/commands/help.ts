@@ -9,7 +9,7 @@ const data: CommandConstructor = {
         .setDescription("Shows all commands")
     ,
     interaction: (client, interaction) => {
-
+        interaction.reply({ content: 'This command is incomplete', ephemeral: true });
     },
     message: (client, message, args) => {
         //
