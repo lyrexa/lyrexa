@@ -1,4 +1,3 @@
-//import { Client, Collection } from 'discord.js';
 import { Client } from './addons/classes/ModdedClient';
 import { token } from './config/base_config';
 import { readdirSync } from 'fs';
@@ -8,14 +7,10 @@ const client = new Client({
 });
 
 // register events and commands (*todo)
-let slashCommands = [];
-
 const commandFiles = readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`).command;
     client.commands.set(command.name, command);
-    let slash = command.data ? command.data : null;
-    if (slash) slashCommands.push(slash);
 }
 
 const eventFiles = readdirSync('./events').filter(file => file.endsWith('.js'));
