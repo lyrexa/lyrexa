@@ -1,5 +1,4 @@
-import { CommandConstructor, Client } from "../addons/types";
-import { CommandInteraction, Interaction, Message } from "discord.js";
+import { CommandConstructor } from "../addons/types";
 import { SlashCommandBuilder } from '@discordjs/builders'
 
 const data: CommandConstructor = {
@@ -9,13 +8,13 @@ const data: CommandConstructor = {
         .setName("help")
         .setDescription("Shows all commands")
     ,
-    interaction: (client: Client, interaction: CommandInteraction) => {
+    interaction: (client, interaction) => {
+
+    },
+    message: (client, message, args) => {
         //
     },
-    message: (client: Client, message: Message, args: string[]) => {
-        //
-    },
-    nonCmdInteraction: (client: Client, interaction: Interaction) => {
+    nonCmdInteraction: (client, interaction) => {
         //
     },
 }
