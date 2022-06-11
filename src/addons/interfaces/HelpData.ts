@@ -1,3 +1,5 @@
+import { AdvancedHelpData } from "./advancedHelpData";
+
 export type HelpMenus = "info" | "mod" | "fun" | "eco" | "other";
 export type DevHMenus = "dev" | "support" | "admin";
 export type DevLevels = 1 | 2 | 3 | 4 | 5;
@@ -7,6 +9,7 @@ export interface HelpData {
     category: HelpMenus;
     showDev?: boolean;
     dev?: DevHelpData;
+    advanced?: AdvancedHelpData;
 }
 
 export interface DevHelpData {
