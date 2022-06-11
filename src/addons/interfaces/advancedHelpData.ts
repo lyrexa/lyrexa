@@ -1,12 +1,9 @@
-import { HelpMenus } from '../types';
-
 export interface AdvancedHelpData {
     enabled: boolean;
     usage: AHD_Usage;
-    parameters: object;
-    category: HelpMenus;
-    commandDetails: AHD_CommandDetails;
-    codeDetails: AHD_CodeDetails;
+    parameters: AHD_Parameter[];
+    commandDetails?: AHD_CommandDetails;
+    codeDetails?: AHD_CodeDetails;
 }
 
 export interface AHD_Usage {
@@ -24,12 +21,12 @@ interface AHD_UsageItemOption {
 }
 
 interface AHD_CommandDetails {
-    level: 'Top' | 'Sub'; // TOP LEVEL COMMAND | SUB COMMAND
+    level: 'Top' | 'Sub' | "Top" | "Sub"; // TOP LEVEL COMMAND | SUB COMMAND
     optionsCount: number;
 }
 
 interface AHD_CodeDetails {
-    lines: number;
+    lines?: number;
     contributors: AHD_Contributors;
 }
 
@@ -48,5 +45,10 @@ interface AHD_Person {
     discriminator: string;
 }
 
-type meta = { AHD_UsageItem: AHD_UsageItem; AHD_UsageItemOption: AHD_UsageItemOption; AHD_CommandDetails: AHD_CommandDetails; AHD_CodeDetails: AHD_CodeDetails; AHD_Contributors: AHD_Contributors; AHD_Contributor: AHD_Contributor; AHD_Person: AHD_Person };
+interface AHD_Parameter {
+    name: string;
+    description: string;
+}
+
+type meta = { AHD_UsageItem: AHD_UsageItem; AHD_UsageItemOption: AHD_UsageItemOption; AHD_CommandDetails: AHD_CommandDetails; AHD_CodeDetails: AHD_CodeDetails; AHD_Contributors: AHD_Contributors; AHD_Contributor: AHD_Contributor; AHD_Person: AHD_Person, AHD_Parameter: AHD_Parameter };
 export { meta };
