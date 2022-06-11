@@ -5,7 +5,7 @@ import { Client } from '../types';
 export interface CommandConstructor {
     name: string;
     description: string;
-    data: SlashCommandBuilder;
+    data: SlashCommandBuilder | any;
     help: HelpData;
     interaction(client: Client, interaction: CommandInteraction): void;
     message(client: Client, message: Message, args: string[]): void;
