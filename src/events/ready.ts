@@ -25,6 +25,8 @@ export function event(client: Client): void {
                     Routes.applicationGuildCommands(clientID, guild),
                     { body: unRegistered }
                 )
+            } catch (err) {
+                console.log(err);
             }
         }
     })()
