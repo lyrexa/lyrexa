@@ -1,6 +1,7 @@
 import { Client, CommandConstructor, HelpMenus } from "../addons/types";
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { MessageActionRow, MessageEmbed, MessageSelectMenu } from "discord.js";
+import { advanced as advancedHelpData } from "./commands_advanced/help.advanced";
 
 const data: CommandConstructor = {
     name: "help",
@@ -27,7 +28,8 @@ const data: CommandConstructor = {
     help: {
         show: true,
         category: "info",
-        showDev: false
+        showDev: false,
+        advanced: advancedHelpData
     },
     interaction: (client, interaction) => {
         // Get category
