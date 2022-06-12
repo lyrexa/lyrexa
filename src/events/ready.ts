@@ -1,7 +1,7 @@
 import { Client } from '../addons/classes/ModdedClient';
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9'
-import { token } from '../config/token';
+import { token, events, enableEvents } from '../config/base_config';
 import { SlashCommandBuilder } from '@discordjs/builders';
 
 export function event(client: Client): void {
@@ -30,4 +30,21 @@ export function event(client: Client): void {
             }
         }
     })()
+
+    if (enableEvents && events && events.length > 0) refreshStatus(client, 0);
+
+}
+
+function refreshStatus(client: Client, pos: number): void {
+    const status = events?.[pos];
+
+    if (!status) return refreshStatus(client, 0);
+
+    const duration = status.duration;
+
+    setTimeout(refreshStatus, duration * 1000, client, pos + 1);
+
+    client.user?.setActivity(status.name, { type: status.type });
+
+    console.log(`Set status to ${status.type} ${status.name}`);
 }
